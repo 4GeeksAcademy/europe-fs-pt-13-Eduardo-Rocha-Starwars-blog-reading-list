@@ -13,7 +13,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				.then(data => setStore({people: data["results"]}))
 				.catch(err => console.log(err))
 			},
-
 			loadVehicles: () => {
 				fetch("https://www.swapi.tech/api/vehicles")
 				.then(res => res.json())

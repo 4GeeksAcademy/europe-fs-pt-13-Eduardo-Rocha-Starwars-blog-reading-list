@@ -8,13 +8,13 @@ import { Vehicles } from "../component/vehicles";
 export const Home = () => {
 	return(
 		<>
-		<div>
+		<div className="my-4">
 			<People />
 		</div>
-		<div>
+		<div className="my-4">
 			<Planets />
 		</div>
-		<div>
+		<div className="my-4">
 			<Vehicles />
 		</div>
 		</>

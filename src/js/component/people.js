@@ -1,11 +1,8 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 
-export const People = () => {
+export const People = props => {
     const { store, actions } = useContext(Context);
-    
-    let peopledata = store.people;
-    console.log(peopledata);
 
     return (
         <div className="row row-cols-1 row-cols-md-3 mx-1 g-4">

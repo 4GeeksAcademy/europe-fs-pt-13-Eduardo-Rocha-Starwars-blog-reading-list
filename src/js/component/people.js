@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 
-export const People = props => {
+export const People = () => {
     const { store, actions } = useContext(Context);
 
     return (

@@ -1,13 +1,13 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import ScrollToTop from "./component/scrollToTop";
 import { Navbar } from "./component/navbar";
+import { Footer } from "./component/footer";
 
 import { Home } from "./views/home";
-import { Peopleview } from "./views/peopleview";
-import { Planetsview } from "./views/planetsview";
-import { Vehiclesview } from "./views/vehiclesview";
+import { CharacterDetail } from "./views/CharacterDetail";
+import { PlanetDetail } from "./views/PlanetDetail";
+import { VehicleDetail } from "./views/VehicleDetail";
 
 import injectContext from "./store/appContext";
 
@@ -22,16 +22,15 @@ const Layout = () => {
 	return (
 		<div>
 			<BrowserRouter basename={basename}>
-				<ScrollToTop>
 					<Navbar />
 					<Routes>
 						<Route exact path="/" element={<Home />} />
-						<Route exact path="/people" element={<Peopleview />} />
-						<Route exact path="/planets" element={<Planetsview />} />
-						<Route exact path="/vehicles" element={<Vehiclesview />} />
+						<Route exact path="/CharacterDetail" element={<CharacterDetail />} />
+						<Route exact path="/PlanetDetail" element={<PlanetDetail />} />
+						<Route exact path="/VehicleDetail" element={<VehicleDetail />} />
 						<Route path="*" element={<h1>Not found!</h1>} />
 					</Routes>
-				</ScrollToTop>
+					<Footer />
 			</BrowserRouter>
 		</div>
 	);

@@ -1,29 +1,40 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			people: [],
+			characters: [],
 			vehicles: [],
-			planets: []
+			planets: [],
+			favorites: []
 		},
 		actions: {
-			loadPeople: () => {
+			getCharacters: () => {
 				fetch("https://www.swapi.tech/api/people/")
 				.then(res => res.json())
-				.then(data => setStore({people: data["results"]}))
+				.then(data => setStore({characters: data.results}))
 				.catch(err => console.log(err))
 			},
-			loadVehicles: () => {
+			getVehicles: () => {
 				fetch("https://www.swapi.tech/api/vehicles")
 				.then(res => res.json())
-				.then(data => setStore({vehicles: data["results"]}))
+				.then(data => setStore({vehicles: data.results}))
 				.catch(err => console.log(err))
 			},
-			loadPlanets: () => {
+			getPlanets: () => {
 				fetch("https://www.swapi.tech/api/planets")
 				.then(res => res.json())
-				.then(data => setStore({planets: data["results"]}))
+				.then(data => setStore({planets: data.results}))
 				.catch(err => console.log(err))
 			},
+			addFavorites: (param) => {
+				const store = getStore();
+				if (store.favorites.includes(param) == false){
+					const favorites = store.favorites.concat(param);
+					setStore({favorites: favorites})
+				} else {
+					const favorites = store.favorites.filter(e => e !== param);
+					setStore({favorites: favorites})
+				}
+			}
 		},
 	};
 };

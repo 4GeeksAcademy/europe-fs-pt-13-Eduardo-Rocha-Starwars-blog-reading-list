@@ -9,13 +9,13 @@ export const Navbar = () => {
 				<Link to="/">
 					<button className="btn btn-primary mx-1">Home</button>
 				</Link>
-				<Link to="/people">
-					<button className="btn btn-primary mx-1">People</button>
+				<Link to="/CharacterDetail">
+					<button className="btn btn-primary mx-1">Characters</button>
 				</Link>
-				<Link to="/planets">
+				<Link to="/PlanetDetail">
 					<button className="btn btn-primary mx-1">Planets</button>
 				</Link>
-				<Link to="/vehicles">
+				<Link to="/VehicleDetail">
 					<button className="btn btn-primary mx-1">Vehicles</button>
 				</Link>
 			</div>

@@ -1,39 +1,41 @@
-import React, { useState, useEffect, useContext } from "react";
-import PropTypes from "prop-types";
-import { Link, useParams } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-export const CharacterDetail = props => {
-	const { store, actions } = useContext(Context);
-	const [character, setCharacter] = useState({})
-	const params = useParams();
+export const CharacterDetail = (props) => {
+	const [character, setCharacter] = useState({});
+	const [characterdata, setCharacterData] = useState({});
+    const { store, actions } = useContext(Context);
 
-	function getCharacter(){
-		fetch('https://swapi.tech/api/people/'+params.uid)
-		.then((response) => response.json())
-		.then((data) => {
-			console.log(data.result.properties)
-			setCharacter(data.result.properties);
-			console.log(character)
-		} )
-	}
+	useEffect(()=> {
+        fetch(`https://www.swapi.tech/api/people/${props.uid}`)
+        .then(res => res.json())
+        .then(data => setCharacter(data.result))
+        .catch(err => console.error(err))
+    }, [])
 
-	useEffect(()=>{
-		getCharacter();
-		console.log(character)
-	},[])
+    console.log(character);
+
+	useEffect(()=> {
+        fetch(`https://www.swapi.tech/api/people/${props.uid}`)
+        .then(res => res.json())
+        .then(data => setCharacterData(data.result.properties))
+        .catch(err => console.error(err))
+    }, [])
+
+    console.log("***", characterdata);
 
 	return (
 		<div className="">
 			<div className="row">
 				<div className="col-6 text-center">
-					<img src={`https://starwars-visualguide.com/assets/img/characters/${params.uid}.jpg`} className="col-6" />
+					<img src={`https://starwars-visualguide.com/assets/img/characters/${props.uid}.jpg`} className="col-6" />
 				</div>
 				<div className="col-6 text-center">
 					<h1 className="col-6">{character.name}</h1>
 					<p className="col-3"> </p>
 					<div className="col-6">
-						<p className="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget vehicula elit, sit amet fringilla eros. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vestibulum tincidunt libero nec neque mattis, quis ultricies justo fermentum. Ut ac pulvinar arcu. Suspendisse porta sodales mi sit amet iaculis. Aliquam ac augue varius, blandit est quis, pulvinar nisl. Cras massa quam, molestie lobortis mollis sed, rutrum at risus. Sed a rhoncus dolor. Quisque dignissim nisi turpis, eget aliquet purus mattis vitae.</p>				
+						<p className="text">{character.description}</p>				
 					</div>
 					<p className="col-3"> </p>
 				</div>
@@ -42,27 +44,27 @@ export const CharacterDetail = props => {
 			<div className="row text-center">
 				<div className="col text-danger">
 					<h5>Gender</h5>
-					<p>{character.gender}</p>
+					<p>{characterdata.gender}</p>
 				</div>
 				<div className="col text-danger">
 					<h5>Height</h5>
-					<p>{character.height}</p>
+					<p>{characterdata.height}</p>
 				</div>
 				<div className="col text-danger">
 					<h5>Mass</h5>
-					<p>{character.mass}</p>
+					<p>{characterdata.mass}</p>
 				</div>
 				<div className="col text-danger">
 					<h5>Hair color</h5>
-					<p>{character.hair_color}</p>
+					<p>{characterdata.hair_color}</p>
 				</div>
 				<div className="col text-danger">
 					<h5>Skin color</h5>
-					<p>{character.skin_color}</p>
+					<p>{characterdata.skin_color}</p>
 				</div>
 				<div className="col text-danger">
 					<h5>Birth year</h5>
-					<p>{character.birth_year}</p>
+					<p>{characterdata.birth_year}</p>
 				</div>
 			</div>
 

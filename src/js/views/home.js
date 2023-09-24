@@ -37,20 +37,20 @@ export const Home = () => {
 		<div className="mt-5">
 		<h2 className="text-danger">Characters</h2>
 			<div className="d-flex overflow-auto">
-				{characters.map((person, index) => (
-					<CharacterCard className="card" key={index} uid={person.uid} name={person.name} url={person.url} />
+				{characters.map((characters, index) => (
+					<CharacterCard className="card" key={index} uid={characters.uid} name={characters.name} url={characters.url} />
 				))}
         	</div>
 			<h2 className="text-danger mt-5">Planets</h2>
 			<div className="d-flex overflow-auto">
-				{planets.map((planet, index) => (
-					<PlanetCard className="card" key={index} uid={planet.uid} name={planet.name} url={planet.url} />
+				{planets.map((planets, index) => (
+					<PlanetCard className="card" key={index} uid={planets.uid} name={planets.name} url={planets.url} />
 				))}
         	</div>
-			<h2 className="text-danger mt-5">Planets</h2>
+			<h2 className="text-danger mt-5">Vehicles</h2>
 			<div className="d-flex overflow-auto">
-				{vehicles.map((vehicle, index) => (
-					<VehicleCard className="card" key={index} uid={vehicle.uid} name={vehicle.name} url={vehicle.url} />
+				{vehicles.map((vehicles, index) => (
+					<VehicleCard className="card" key={index} uid={vehicles.uid} name={vehicles.name} url={vehicles.url} />
 				))}
         	</div>
 		</div>

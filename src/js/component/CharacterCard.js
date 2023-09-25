@@ -10,20 +10,15 @@ export const CharacterCard = (props) => {
     useEffect(()=> {
         fetch(`https://www.swapi.tech/api/people/${props.uid}`)
         .then(res => res.json())
-        .then(data => setCharacter(data.result))
+        .then(data => 
+            {setCharacter(data.result)
+            setCharacterData(data.result.properties)}
+            )
         .catch(err => console.error(err))
     }, [])
 
-    console.log(character);
-
-    useEffect(()=> {
-        fetch(`https://www.swapi.tech/api/people/${props.uid}`)
-        .then(res => res.json())
-        .then(data => setCharacterData(data.result.properties))
-        .catch(err => console.error(err))
-    }, [])
-
-    console.log("***", characterdata);
+    console.log("***", character);
+    console.log("*data*", characterdata);
     
 
     return (

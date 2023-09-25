@@ -10,19 +10,14 @@ export const PlanetCard = (props) => {
     useEffect(()=> {
         fetch(`https://www.swapi.tech/api/planets/${props.uid}`)
         .then(res => res.json())
-        .then(data => setPlanet(data.result))
+        .then(data => 
+            {setPlanet(data.result)
+            setPlanetData(data.result.properties)}
+            )
         .catch(err => console.error(err))
     }, [])
 
     console.log(planet);
-
-    useEffect(()=> {
-        fetch(`https://www.swapi.tech/api/planets/${props.uid}`)
-        .then(res => res.json())
-        .then(data => setPlanetData(data.result.properties))
-        .catch(err => console.error(err))
-    }, [])
-
     console.log("***", planetdata);
     
 

@@ -10,19 +10,14 @@ export const VehicleCard = (props) => {
     useEffect(()=> {
         fetch(`https://www.swapi.tech/api/vehicles/${props.uid}`)
         .then(res => res.json())
-        .then(data => setVehicle(data.result))
+        .then(data => 
+            {setVehicle(data.result)
+            setVehicleData(data.result.properties)}
+            )
         .catch(err => console.error(err))
     }, [])
 
     console.log(vehicle);
-
-    useEffect(()=> {
-        fetch(`https://www.swapi.tech/api/vehicles/${props.uid}`)
-        .then(res => res.json())
-        .then(data => setVehicleData(data.result.properties))
-        .catch(err => console.error(err))
-    }, [])
-
     console.log("***", vehicledata);
     
     return (

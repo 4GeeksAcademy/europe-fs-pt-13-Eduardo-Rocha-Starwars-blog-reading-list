@@ -34,7 +34,7 @@ export const Home = () => {
 	},[])
 
 	return(
-		<div className="mt-5">
+		<div className="mt-5 mx-5">
 		<h2 className="text-danger">Characters</h2>
 			<div className="d-flex overflow-auto">
 				{characters.map((characters, index) => (

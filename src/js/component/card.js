@@ -14,20 +14,20 @@ export const Card = ({ item, type }) => {
         <>
             {type == "person" && 
                 <div className="card col-4 me-3" style={{width: "18rem"}}>
-                    <img src={`https://starwars-visualguide.com/assets/img/characters/${uid}.jpg`} className="card-img-top img w-100" alt="character-img" />
+                    <img src={`https://starwars-visualguide.com/assets/img/characters/${uid}.jpg`} className="card-img-top" alt="character-img" />
                     <div className="card-body">
-                        <h3 className="card-title"><strong>{properties.name}</strong></h3>
-                        <p className="card-text fs-5 p-0 m-0"><strong>Gender: </strong>{properties.gender}</p>
-                        <p className="card-text fs-5 p-0 m-0"><strong>Birth year: </strong>{properties.birth_year}</p>
+                        <h4 className="card-title"><strong>{properties.name}</strong></h4>
+                        <p className="card-text p-0 m-0"><strong>Gender: </strong>{properties.gender}</p>
+                        <p className="card-text p-0 m-0"><strong>Birth year: </strong>{properties.birth_year}</p>
                     </div>
                     <div className="card-footer">
                         <div className="d-flex justify-content-between">
                             <Link to={`learn/${type}/${uid}`}>
                                 < button className="btn btn-primary">Learn more!</button>
                             </Link>
-                            <i className="btn fa-sharp fa-light fa-heart btn-outline-warning" onClick={() => actions.addFavorite(item)}>
-                                <i className="fa-sharp fa-light fa-heart"></i>
-                            </i>
+                            <button className="btn btn-outline-warning" onClick={() => actions.addFavorite(item)}>
+                                <i className="fa-regular fa-heart"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -40,9 +40,9 @@ export const Card = ({ item, type }) => {
                         src={`https://starwars-visualguide.com/assets/img/planets/${uid}.jpg`}
                         className="card-img-top img-planet" alt="planet-img" />
                     <div className="card-body">
-                        <h3 className="card-title"><strong>{properties.name}</strong></h3>
-                        <p className="card-text fs-5 p-0 m-0"><strong>Population: </strong>{properties.population}</p>
-                        <p className="card-text fs-5 p-0 m-0"><strong>Terrain: </strong>{properties.terrain}</p>
+                        <h4 className="card-title"><strong>{properties.name}</strong></h4>
+                        <p className="card-text p-0 m-0"><strong>Population: </strong>{properties.population}</p>
+                        <p className="card-text p-0 m-0"><strong>Terrain: </strong>{properties.terrain}</p>
                     </div>
                     <div className="card-footer">
                         <div className="d-flex justify-content-between">
@@ -50,7 +50,7 @@ export const Card = ({ item, type }) => {
                                 < button className="btn btn-primary">Learn more!</button>
                             </Link>
                             <button type="button" className="btn btn-outline-warning" onClick={() => actions.addFavorite(item)}>
-                                <i className="fa-sharp fa-light fa-heart"></i>
+                                <i className="fa-regular fa-heart"></i>
                             </button>
                         </div>
                     </div>
@@ -64,9 +64,9 @@ export const Card = ({ item, type }) => {
                         src={`https://starwars-visualguide.com/assets/img/vehicles/${uid}.jpg`}
                         className="card-img-top img w-100" alt="vehicle-img" />
                     <div className="card-body">
-                        <h3 className="card-title"><strong>{properties.name}</strong></h3>
-                        <p className="card-text fs-5 p-0 m-0"><strong>Model: </strong>{properties.model}</p>
-                        <p className="card-text fs-5 p-0 m-0"><strong>Manufacturer: </strong>{properties.manufacturer}</p>
+                        <h4 className="card-title"><strong>{properties.name}</strong></h4>
+                        <p className="card-text p-0 m-0"><strong>Model: </strong>{properties.model}</p>
+                        <p className="card-text p-0 m-0"><strong>Manufacturer: </strong>{properties.manufacturer}</p>
                     </div>
                     <div className="card-footer">
                         <div className="d-flex justify-content-between">
@@ -74,7 +74,7 @@ export const Card = ({ item, type }) => {
                                 < button className="btn btn-primary">Learn more!</button>
                             </Link>
                             <button type="button" className="btn btn-outline-warning" onClick={() => actions.addFavorite(item)}>
-                                <i className="fa-sharp fa-light fa-heart"></i>
+                                <i className="fa-regular fa-heart"></i>
                             </button>
                         </div>
                     </div>

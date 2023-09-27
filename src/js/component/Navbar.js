@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../../styles/index.css";
-import { Favorites } from "./favorites";
+import { FavoriteDropdown } from "./FavoriteDropdown";
 
 export const Navbar = () => {
 	return (
@@ -11,7 +11,7 @@ export const Navbar = () => {
 					className="logo ms-5" alt="logo-img" />
 			</div>
 
-			<Favorites />
+			<FavoriteDropdown />
 
 		</nav>
 	);

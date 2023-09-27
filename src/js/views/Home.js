@@ -1,6 +1,6 @@
 import React, { useEffect, useContext, useState } from "react";
 import { Context } from "../store/appContext.js";
-import { Card } from "../component/card.js";
+import { ItemCard } from "../component/ItemCard.js";
 import "../../styles/home.css";
 
 export const Home = () => {
@@ -19,7 +19,7 @@ export const Home = () => {
               {people.map((item, index) => {
                 return (
                   <div className="w-100" key={index}>
-                    <Card key={index} item={item} type={"person"} />
+                    <ItemCard key={index} item={item} type={"person"} />
                   </div>
                 )
               })}
@@ -35,7 +35,7 @@ export const Home = () => {
             {planets.map((item, index) => {
               return (
                 <div className="w-100" key={index}>
-                  <Card key={index} item={item} type={"planet"} />
+                  <ItemCard key={index} item={item} type={"planet"} />
                 </div>
               )
             })}
@@ -51,7 +51,7 @@ export const Home = () => {
             {vehicles.map((item, index) => {
               return (
                 <div className="w-100" key={index}>
-                  <Card key={index} item={item} type={"vehicle"} />
+                  <ItemCard key={index} item={item} type={"vehicle"} />
                 </div>
               )
             })}

@@ -4,7 +4,7 @@ import "../../styles/home.css";
 import { Link } from "react-router-dom";
 
 
-export const Card = ({ item, type }) => {
+export const ItemCard = ({ item, type }) => {
     const { actions } = useContext(Context)
     const { properties } = item
     const { uid } = item

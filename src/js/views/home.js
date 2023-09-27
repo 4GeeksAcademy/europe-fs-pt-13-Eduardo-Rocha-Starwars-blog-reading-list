@@ -1,58 +1,80 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useContext, useState } from "react";
+import { Context } from "../store/appContext.js";
+import { Card } from "../component/card.js";
 import "../../styles/home.css";
 
-import { CharacterCard } from "../component/CharacterCard";
-import { PlanetCard } from "../component/PlanetCard";
-import { VehicleCard } from "../component/VehicleCard";
-
 export const Home = () => {
-	const [characters, setCharacters] = useState([])
-	const [planets, setPlanets] = useState([])
-	const [vehicles, setVehicles] = useState([])
+  const { store, actions } = useContext(Context)
+  const { people, vehicles, planets } = store
 
-	function getPeople () {
-		fetch('https://swapi.tech/api/people')
-		.then((response) => response.json())
-		.then((data) => setCharacters(data.results) )
-	}
-	function getPlanets () {
-		fetch('https://swapi.tech/api/planets')
-		.then((response) => response.json())
-		.then((data) => setPlanets(data.results) )
-	}
+  return (
+    <>
+      <div className="container col-10">
 
-	function getVehicles () {
-		fetch('https://swapi.tech/api/vehicles')
-		.then((response) => response.json())
-		.then((data) => setVehicles(data.results) )
-	}
+        {/* TITULO */}
+        <div className="text-center text-danger fs-1">
+          <strong>Caracters</strong>
+        </div>
 
-	useEffect(()=>{
-		getPeople(),
-		getPlanets(),
-		getVehicles()
-	},[])
+        {/* CONTAINER */}
+        <div className="d-flex justify-content-between overflow-auto mb-5">
 
-	return(
-		<div className="mt-5 mx-5">
-		<h2 className="text-danger">Characters</h2>
-			<div className="d-flex overflow-auto">
-				{characters.map((characters, index) => (
-					<CharacterCard className="card" key={index} uid={characters.uid} name={characters.name} url={characters.url} />
-				))}
-        	</div>
-			<h2 className="text-danger mt-5">Planets</h2>
-			<div className="d-flex overflow-auto">
-				{planets.map((planets, index) => (
-					<PlanetCard className="card" key={index} uid={planets.uid} name={planets.name} url={planets.url} />
-				))}
-        	</div>
-			<h2 className="text-danger mt-5">Vehicles</h2>
-			<div className="d-flex overflow-auto">
-				{vehicles.map((vehicles, index) => (
-					<VehicleCard className="card" key={index} uid={vehicles.uid} name={vehicles.name} url={vehicles.url} />
-				))}
-        	</div>
-		</div>
-	)
+          {/* CHARACTERS MAPPING*/}
+          {
+            people.map((item, index) => {
+
+              return (
+                <div className="w-100" key={index}>
+                  <Card key={index} item={item} type={"person"} />
+                </div>
+              )
+            })
+          }
+        </div>
+
+
+        {/* TITULO */}
+        <div className="text-center text-danger fs-1">
+          <strong>Planets</strong>
+        </div>
+
+        {/* CONTAINER */}
+        <div className="d-flex justify-content-between overflow-auto mb-5">
+
+          {/* PLANETS MAPPING*/}
+          {
+            planets.map((item, index) => {
+              return (
+                <div className="w-100" key={index}>
+                  <Card key={index} item={item} type={"planet"} />
+                </div>
+              )
+            })
+          }
+        </div>
+
+
+        {/* TITULO */}
+        <div className="text-center text-danger fs-1">
+          <strong>Vehicles</strong>
+        </div>
+
+        {/* CONTAINER */}
+        <div className="d-flex justify-content-between overflow-auto mb-5">
+
+          {/* VEHICLES MAPPING*/}
+          {
+            vehicles.map((item, index) => {
+              return (
+                <div className="w-100" key={index}>
+                  <Card key={index} item={item} type={"vehicle"} />
+                </div>
+              )
+            })
+          }
+
+        </div>
+      </div >
+    </>
+  )
 };

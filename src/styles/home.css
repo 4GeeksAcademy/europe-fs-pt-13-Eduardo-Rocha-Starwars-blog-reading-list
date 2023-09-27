@@ -1,11 +1,17 @@
-.logo{
-    height: 50px;
-    width: 88.88px;
-}
-.card{
-    min-width: 20rem;
-}
-.logo-img {
-    height: 45px;
-    width: 100%;
-}
+.img {
+    width: fit-content;
+    height: fit-content;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+  }
+  
+  .img-planet {
+    width: 400px;
+    height: 400px;
+    /* aspect-ratio: 1/1;
+    object-fit: cover; */
+  }
+  
+  .card {
+    width: 400px;
+  }

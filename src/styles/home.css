@@ -5,3 +5,7 @@
 .card{
     min-width: 20rem;
 }
+.logo-img {
+    height: 45px;
+    width: 100%;
+}

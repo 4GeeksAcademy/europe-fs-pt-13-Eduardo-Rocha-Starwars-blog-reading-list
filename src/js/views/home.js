@@ -31,7 +31,7 @@ export const Home = () => {
           <strong>Planets</strong>
         </div>
         <div>
-          <div class="d-flex justify-content-between overflow-auto mb-5">
+          <div className="d-flex justify-content-between overflow-auto mb-5">
             {planets.map((item, index) => {
               return (
                 <div className="w-100" key={index}>
@@ -47,7 +47,7 @@ export const Home = () => {
           <strong>Vehicles</strong>
         </div>
         <div>
-          <div class="d-flex justify-content-between overflow-auto mb-5">
+          <div className="d-flex justify-content-between overflow-auto mb-5">
             {vehicles.map((item, index) => {
               return (
                 <div className="w-100" key={index}>

@@ -25,9 +25,9 @@ export const Card = ({ item, type }) => {
                             <Link to={`learn/${type}/${uid}`}>
                                 < button className="btn btn-primary">Learn more!</button>
                             </Link>
-                            <button tyoe="button" className="btn btn-outline-warning" onClick={() => actions.addFavorite(item)}>
+                            <i className="btn fa-sharp fa-light fa-heart btn-outline-warning" onClick={() => actions.addFavorite(item)}>
                                 <i className="fa-sharp fa-light fa-heart"></i>
-                            </button>
+                            </i>
                         </div>
                     </div>
                 </div>
@@ -49,7 +49,7 @@ export const Card = ({ item, type }) => {
                             <Link to={`learn/${type}/${uid}`}>
                                 < button className="btn btn-primary">Learn more!</button>
                             </Link>
-                            <button tyoe="button" className="btn btn-outline-warning" onClick={() => actions.addFavorite(item)}>
+                            <button type="button" className="btn btn-outline-warning" onClick={() => actions.addFavorite(item)}>
                                 <i className="fa-sharp fa-light fa-heart"></i>
                             </button>
                         </div>
@@ -73,7 +73,7 @@ export const Card = ({ item, type }) => {
                             <Link to={`learn/${type}/${uid}`}>
                                 < button className="btn btn-primary">Learn more!</button>
                             </Link>
-                            <button tyoe="button" className="btn btn-outline-warning" onClick={() => actions.addFavorite(item)}>
+                            <button type="button" className="btn btn-outline-warning" onClick={() => actions.addFavorite(item)}>
                                 <i className="fa-sharp fa-light fa-heart"></i>
                             </button>
                         </div>

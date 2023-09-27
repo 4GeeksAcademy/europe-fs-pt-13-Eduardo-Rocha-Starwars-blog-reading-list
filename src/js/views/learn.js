@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { Context } from "../store/appContext.js";
 
@@ -12,15 +13,13 @@ export const Learn = () => {
 
     return (
         <>
-            {
-                params.type == "person"
-                &&
+            {params.type == "person" &&
                 people.map((item, index) => {
                     const { properties } = item
                     if (item.uid == params.uid) {
                         return (
                             <>
-                                <div className="container col-10" key={index}>
+                                <div className="container col-10 py-5" key={index}>
                                     <div className="card mb-3">
                                         <div className="row g-0">
                                             <div className="col-md-4">
@@ -74,15 +73,13 @@ export const Learn = () => {
             }
 
 
-            {
-                params.type == "planet"
-                &&
+            {params.type == "planet" &&
                 planets.map((item, index) => {
                     const { properties } = item
                     if (item.uid == params.uid) {
                         return (
                             <>
-                                <div className="container col-10" key={index}>
+                                <div className="container col-10 py-5" key={index}>
                                     <div className="card mb-3">
                                         <div className="row g-0">
                                             <div className="col-md-4">
@@ -132,15 +129,13 @@ export const Learn = () => {
                     }
                 })
             }
-            {
-                params.type == "vehicle"
-                &&
+            {params.type == "vehicle" &&
                 vehicles.map((item, index) => {
                     const { properties } = item
                     if (item.uid == params.uid) {
                         return (
                             <>
-                                <div className="container col-10" key={index}>
+                                <div className="container col-10 py-5" key={index}>
                                     <div className="card mb-3">
                                         <div className="row g-0">
                                             <div className="col-md-4">
@@ -189,6 +184,9 @@ export const Learn = () => {
                     }
                 })
             }
+            <Link to={`/`}>
+                < button className="btn btn-primary ms-5">Home</button>
+            </Link> 
         </>
     )
 

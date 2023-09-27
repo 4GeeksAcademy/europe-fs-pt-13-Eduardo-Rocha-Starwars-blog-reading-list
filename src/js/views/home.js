@@ -9,72 +9,56 @@ export const Home = () => {
 
   return (
     <>
-      <div className="container col-10">
+      <div className="container py-3 mx-5">
 
-        {/* TITULO */}
-        <div className="text-center text-danger fs-1">
+        <div className="text-danger h3">
           <strong>Caracters</strong>
         </div>
-
-        {/* CONTAINER */}
-        <div className="d-flex justify-content-between overflow-auto mb-5">
-
-          {/* CHARACTERS MAPPING*/}
-          {
-            people.map((item, index) => {
-
-              return (
-                <div className="w-100" key={index}>
-                  <Card key={index} item={item} type={"person"} />
-                </div>
-              )
-            })
-          }
+        <div>
+          <div className="d-flex justify-content-between overflow-auto mb-5">
+              {people.map((item, index) => {
+                return (
+                  <div className="w-100" key={index}>
+                    <Card key={index} item={item} type={"person"} />
+                  </div>
+                )
+              })}
+          </div>
         </div>
 
 
-        {/* TITULO */}
-        <div className="text-center text-danger fs-1">
+        <div className="text-danger py-3 h3">
           <strong>Planets</strong>
         </div>
-
-        {/* CONTAINER */}
-        <div className="d-flex justify-content-between overflow-auto mb-5">
-
-          {/* PLANETS MAPPING*/}
-          {
-            planets.map((item, index) => {
+        <div>
+          <div class="d-flex justify-content-between overflow-auto mb-5">
+            {planets.map((item, index) => {
               return (
                 <div className="w-100" key={index}>
                   <Card key={index} item={item} type={"planet"} />
                 </div>
               )
-            })
-          }
+            })}
+          </div>
         </div>
 
 
-        {/* TITULO */}
-        <div className="text-center text-danger fs-1">
+        <div className="text-danger py-3 h3">
           <strong>Vehicles</strong>
         </div>
-
-        {/* CONTAINER */}
-        <div className="d-flex justify-content-between overflow-auto mb-5">
-
-          {/* VEHICLES MAPPING*/}
-          {
-            vehicles.map((item, index) => {
+        <div>
+          <div class="d-flex justify-content-between overflow-auto mb-5">
+            {vehicles.map((item, index) => {
               return (
                 <div className="w-100" key={index}>
                   <Card key={index} item={item} type={"vehicle"} />
                 </div>
               )
-            })
-          }
-
+            })}
+          </div>
         </div>
       </div >
+
     </>
   )
 };

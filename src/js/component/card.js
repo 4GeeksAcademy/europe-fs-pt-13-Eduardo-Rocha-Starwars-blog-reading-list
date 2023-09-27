@@ -4,11 +4,7 @@ import "../../styles/home.css";
 import { Link } from "react-router-dom";
 
 
-
-
-
 export const Card = ({ item, type }) => {
-
     const { actions } = useContext(Context)
     const { properties } = item
     const { uid } = item
@@ -16,10 +12,9 @@ export const Card = ({ item, type }) => {
 
     return (
         <>
-            {type == "person" && <div className="card col-4 m-2">
-                    <img
-                        src={`https://starwars-visualguide.com/assets/img/characters/${uid}.jpg`}
-                        className="card-img-top img w-100" alt="character-img" />
+            {type == "person" && 
+                <div className="card col-4 me-3" style={{width: "18rem"}}>
+                    <img src={`https://starwars-visualguide.com/assets/img/characters/${uid}.jpg`} className="card-img-top img w-100" alt="character-img" />
                     <div className="card-body">
                         <h3 className="card-title"><strong>{properties.name}</strong></h3>
                         <p className="card-text fs-5 p-0 m-0"><strong>Gender: </strong>{properties.gender}</p>
@@ -30,8 +25,8 @@ export const Card = ({ item, type }) => {
                             <Link to={`learn/${type}/${uid}`}>
                                 < button className="btn btn-primary">Learn more!</button>
                             </Link>
-                            < button className="btn btn-warning" onClick={() => actions.addFavorite(item)}>
-                                heart icon
+                            <button tyoe="button" className="btn btn-outline-warning" onClick={() => actions.addFavorite(item)}>
+                                <i className="fa-sharp fa-light fa-heart"></i>
                             </button>
                         </div>
                     </div>
@@ -39,10 +34,8 @@ export const Card = ({ item, type }) => {
             }
 
 
-            {
-                type == "planet"
-                &&
-                <div className="card col-4 m-2">
+            {type == "planet" &&
+                <div className="card col-4 me-3" style={{width: "18rem"}}>
                     <img
                         src={`https://starwars-visualguide.com/assets/img/planets/${uid}.jpg`}
                         className="card-img-top img-planet" alt="planet-img" />
@@ -56,10 +49,8 @@ export const Card = ({ item, type }) => {
                             <Link to={`learn/${type}/${uid}`}>
                                 < button className="btn btn-primary">Learn more!</button>
                             </Link>
-                            < button className="btn btn-warning"
-                                onClick={() => actions.addFavorite(item)}
-                            >
-                                
+                            <button tyoe="button" className="btn btn-outline-warning" onClick={() => actions.addFavorite(item)}>
+                                <i className="fa-sharp fa-light fa-heart"></i>
                             </button>
                         </div>
                     </div>
@@ -67,10 +58,8 @@ export const Card = ({ item, type }) => {
             }
 
 
-            {
-                type == "vehicle"
-                &&
-                <div className="card col-4 m-2">
+            {type == "vehicle" &&
+                <div className="card col-4 me-3" style={{width: "18rem"}}>
                     <img
                         src={`https://starwars-visualguide.com/assets/img/vehicles/${uid}.jpg`}
                         className="card-img-top img w-100" alt="vehicle-img" />
@@ -84,10 +73,8 @@ export const Card = ({ item, type }) => {
                             <Link to={`learn/${type}/${uid}`}>
                                 < button className="btn btn-primary">Learn more!</button>
                             </Link>
-                            < button className="btn btn-warning"
-                                onClick={() => actions.addFavorite(item)}
-                            >
-                                
+                            <button tyoe="button" className="btn btn-outline-warning" onClick={() => actions.addFavorite(item)}>
+                                <i className="fa-sharp fa-light fa-heart"></i>
                             </button>
                         </div>
                     </div>

@@ -4,15 +4,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 	return {
 		store: {
-
-			URLBASE: "https://www.swapi.tech/api",
 			people: [],
 			planets: [],
 			vehicles: [],
 			favorites: [],
-
 		},
-
 
 		actions: {
 			getItems: () => {
@@ -20,7 +16,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const natures = ['people', 'planets', 'vehicles'];
 
 				natures.forEach(async (nature) => {
-					const url = `${store.URLBASE}/${nature}`;
+					const url = `https://www.swapi.tech/api/${nature}`;
 
 					try {
 						const response = await fetch(`${url}`)
@@ -28,18 +24,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 						data.results.forEach(async (item) => {
 							const responseTwo = await fetch(`${url}/${item.uid}`)
-							// console.log(responseTwo)
 							const dataTwo = await responseTwo.json()
 
 							setStore({
 								[nature]: [...store[nature], dataTwo.result]
 							})
 						})
-
-					} catch (error) {
-						console.log(error)
-
-					}
+					} 
+					catch (error) {console.log(error)}
 				})
 			},
 

@@ -9,13 +9,10 @@ export const Favorites = () => {
 
     return (
         <>
-            <div className="btn-group">
-                <button
-                    className="btn btn-secondary btn-lg dropdown-toggle"
-                    type="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    Favorites <span className='px-2 rounded-1 fw-bold text-center bg-warning'>
+            <div className="btn-group me-5">
+                <button className="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Favorites 
+                    <span className='px-2 rounded-1 fw-bold text-center bg-primary'>
                         {favorites.length}
                     </span>
                 </button>
@@ -30,10 +27,8 @@ export const Favorites = () => {
                                     <li className='d-flex justify-content-between align-items-center p-1'
                                         key={index}>
                                         {favorites[index].properties.name}
-                                        <a
-                                            href="#"
-                                            onClick={() => { actions.deleteFavorite(item, index); }}>
-                                            X
+                                        <a href="#" onClick={() => { actions.deleteFavorite(item, index); }}>
+                                            <i className="fa-solid fa-trash-can"></i>
                                         </a>
                                     </li>
 

@@ -26,17 +26,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 				.then(data => setStore({planets: data.results}))
 				.catch(err => console.log(err))
 			},
-			addFavorite: (element) => {
+			addFavorite: (resourceData, resourceType) => {
 				const store = getStore();
-				const { favorites } = store
-				const isFavorite = favorites.filter(item => item.properties.name == element.properties.name);
-				console.log(favorites)
 
-				if (isFavorite.length == 0) {
-					setStore({
-						favorites: [...favorites, element]
-					})
+				if (store.favorites.filter((item) => item.uid === resourceData.uid && item.resourceType === resourceType).length > 0) {
+					let newFavorites = store.favorites.filter((item) => !(item.uid === resourceData.uid && item.resourceType === resourceType))
+					setStore({ favorites: newFavorites });
 				} else {
+					setStore({ favorites: [...store.favorites, { resourceData, resourceType: resourceType }] })
 					console.log("item already exists in favorrite")
 				}
 			},
